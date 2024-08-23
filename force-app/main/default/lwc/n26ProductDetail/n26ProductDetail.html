@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="N26 Product Details" icon-name="standard:partner_fund_request">
+        <template if:true={productDetails}>
+            <div class="slds-p-horizontal_medium">
+                <div class="slds-box" style={productNameStyle}>
+                    <p><strong>{productDetails.Product__c}</strong></p>
+                </div>
+            </div>
+            <div class="slds-p-horizontal_medium">
+                <lightning-datatable
+                    data={data}
+                    columns={columns}
+                    key-field="label"
+                    hide-checkbox-column
+                    hide-row-number-column
+                    hide-table-header
+                    class="slds-var-m-horizontal_medium">
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-p-horizontal_medium">
+                <div class="slds-box slds-theme_error">
+                    <p>{error}</p>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>
